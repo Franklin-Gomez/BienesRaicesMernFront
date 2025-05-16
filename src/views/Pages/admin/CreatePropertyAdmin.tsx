@@ -1,15 +1,17 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import Error from "../../../components/errors/Error";
+import { data, Link, useNavigate } from "react-router-dom";
 import { formPropertyType } from "../../../types";
 import { useMutation } from "@tanstack/react-query";
 import { createPropertyAPI } from "../../../api";
 import { toast } from "react-toastify";
 import PropertyFormAdmin from "../../../components/admin/PropertyFormAdmin";
+import { usePropertyStore } from "../../../stores/store";
+
 
 export default function CreatePropertyAdmin() {
 
     const navigate = useNavigate()
+    const imageURL = usePropertyStore((state) => state.imageURL )
 
     const { handleSubmit , register , formState : { errors }} = useForm({ defaultValues : { 
         name : "",
@@ -17,7 +19,8 @@ export default function CreatePropertyAdmin() {
         price : 0,
         wc : 0,
         parking : 0,
-        room : 0
+        room : 0,
+        image : ""
     }})
 
     const mutate = useMutation({
@@ -31,9 +34,15 @@ export default function CreatePropertyAdmin() {
         }
     })
 
-    const formSubmit = ( formData : formPropertyType) => { 
-        mutate.mutate( formData )
-        
+    const formSubmit = async ( formData : formPropertyType) => { 
+
+        const data = {
+            ...formData,
+            image : imageURL
+        }
+
+        mutate.mutate( data  )
+            
     }
 
     return (

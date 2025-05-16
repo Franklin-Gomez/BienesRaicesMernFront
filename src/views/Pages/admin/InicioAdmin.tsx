@@ -73,14 +73,16 @@ export default function InicioAdmin() {
                             { data.map( ( property ) => 
                                 
                                 <tr className="text-center" key={property._id }>
-                                    <td className="border px-2 py-1">casaDelLago.jpg</td>
+                                    <td className="border px-2 py-1">
+                                        <img src={property.image} alt="Imagen Propiedad" className="w-30 h-30 object-cover rounded-lg mx-auto" />
+                                    </td>
                                     <td className="border px-2 py-1">{ property.name }</td>
                                     <td className="border px-2 py-1">{ property.description }</td>
                                     <td className="border px-2 py-1">{ property.price }</td>
                                     <td className="border px-2 py-1">{ property.wc }</td>
                                     <td className="border px-2 py-1">{ property.parking }</td>
                                     <td className="border px-2 py-1">{ property.room }</td>
-                                    <td className="border border-black px-4 py-2 bg-green-500 text-white"> 
+                                    <td className="border border-black px-4 py-2 bg-green-500 text-white hover:bg-green-800"> 
                                         
                                         <Link
                                             to={`/admin/edit_property/${property._id}`}
@@ -89,7 +91,7 @@ export default function InicioAdmin() {
                                         </Link>
                                     </td>
                                     
-                                    <td className="border border-black px-4 py-2 bg-red-500 text-white"> 
+                                    <td className="border border-black px-4 py-2 bg-red-500 text-white hover:bg-red-800"> 
 
                                         <button
                                             onClick={() => handleDelete( property._id )}

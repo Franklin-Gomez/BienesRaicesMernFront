@@ -27,7 +27,8 @@ export const formPropertySchema = z.object({
     price : z.number(),
     wc : z.number(),
     parking : z.number(),
-    room : z.number()
+    room : z.number(),
+    image : z.string()
 })
 
 export type formPropertyType = z.infer<typeof formPropertySchema>

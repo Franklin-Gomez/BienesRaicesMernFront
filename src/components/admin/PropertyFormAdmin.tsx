@@ -1,6 +1,7 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form"
 import { formPropertyType } from "../../types"
 import Error from "../errors/Error"
+import ImageUpload from "./ImagenUpload"
 
 type PropertyFormAdminType = { 
     register :  UseFormRegister<formPropertyType> 
@@ -115,6 +116,10 @@ export default function PropertyFormAdmin( { register , errors  } : PropertyForm
 
                 { errors.room && <Error> { errors.room.message } </Error> }
             </div>
+
+            <ImageUpload
+                register={register}
+            />
 
         </>
     )

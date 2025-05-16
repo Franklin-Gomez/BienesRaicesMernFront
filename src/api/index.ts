@@ -26,6 +26,8 @@ export const createPropertyAPI = async ( property :  formPropertyType) => {
 
     try {
 
+        console.log( property )
+
         const url = 'http://localhost:4000/api/property/'
 
         const { data } = await axios.post<string> ( url , property )
@@ -70,6 +72,7 @@ export const getAllPropertyAPI = async () => {
         const url = 'http://localhost:4000/api/property/'
 
         const  { data }  = await axios.get( url )
+
 
         const response = PropertiesApiSchema.safeParse( data )
 
