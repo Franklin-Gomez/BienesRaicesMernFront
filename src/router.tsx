@@ -7,11 +7,14 @@ import Contacto from "./views/Pages/Contacto"
 import ClientDashboard from "./views/ClientDashboard"
 import Login from "./views/Pages/Login"
 import AdminDashboard from "./views/AdminDashboard"
-import InicioAdmin from "./views/Pages/admin/InicioAdmin"
-import CreatePropertyAdmin from "./views/Pages/admin/CreatePropertyAdmin"
-import EditProperty from "./views/Pages/admin/EditProperty"
+import { lazy , Suspense   } from "react"
 
 export default function Router() {
+
+    const InicioAdmin = lazy(() => import('./views/Pages/admin/InicioAdmin'));
+    const CreatePropertyAdmin = lazy(() => import('./views/Pages/admin/CreatePropertyAdmin'));
+    const EditProperty = lazy(() => import('./views/Pages/admin/EditProperty'));
+
     return (
         
         <BrowserRouter>
@@ -29,10 +32,10 @@ export default function Router() {
                 </Route>
 
                 <Route element={<AdminDashboard/>} >
-                
-                    <Route index path="/admin" element={<InicioAdmin/>} />
-                    <Route path="/admin/create_property" element={<CreatePropertyAdmin/>}/>
-                    <Route path="/admin/edit_property/:id" element={<EditProperty/>}/>
+
+                    <Route index path='/admin' element={ <Suspense fallback="Cargando..."> <InicioAdmin/> </Suspense> } />
+                    <Route index path='/admin/create_property' element={ <Suspense fallback="Cargando..."> <CreatePropertyAdmin/> </Suspense> } />
+                    <Route index path='/admin/edit_property/:id' element={ <Suspense fallback="Cargando..."> <EditProperty/> </Suspense> } />
 
                 </Route>
                 
