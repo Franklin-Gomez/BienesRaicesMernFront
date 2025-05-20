@@ -1,11 +1,9 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { deletePropertyAPI, getAllPropertyAPI } from "../../../api";
 import { toast } from "react-toastify";
 
 export default function InicioAdmin() {
-
-    const navigate = useNavigate()
 
     const { data } = useQuery({
         queryKey: ['Properties'],
