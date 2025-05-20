@@ -5,7 +5,7 @@ export const loginAPI = async ( user : formLoginType ) => {
 
     try {
         
-        const url = `${import.meta.env.VITE_API_URL}/user/login`
+        const url = `${import.meta.env.VITE_API_URL}/api/user/login`
     
         const { data } = await axios.post<string>( url  , user )
 
@@ -25,7 +25,7 @@ export const createPropertyAPI = async ( property :  formPropertyType) => {
 
     try {
 
-        const url = `${import.meta.env.VITE_API_URL}/property/`
+        const url = `${import.meta.env.VITE_API_URL}/api/property/`
 
         const { data } = await axios.post<string> ( url , property )
 
@@ -43,7 +43,7 @@ export const createPropertyAPI = async ( property :  formPropertyType) => {
 export const getProperty = async ( id : string) => { 
     try {
         
-        const url = `${import.meta.env.VITE_API_URL}/property/${id}`
+        const url = `${import.meta.env.VITE_API_URL}/api/property/${id}`
 
         const { data } = await axios.get(url)
 
@@ -66,7 +66,7 @@ export const getAllPropertyAPI = async () => {
     
     try {
 
-        const url = `${import.meta.env.VITE_API_URL}/property/`
+        const url = `${import.meta.env.VITE_API_URL}/api/property/`
 
         const  { data }  = await axios.get( url )
 
@@ -97,7 +97,7 @@ export const updatePropertyAPI = async (  { formData , id    }  : updateProperty
    
     try {
 
-        const url = `${import.meta.env.VITE_API_URL}/property/${id}`
+        const url = `${import.meta.env.VITE_API_URL}/api/property/${id}`
 
         const { data } = await axios.put( url , formData )
 
@@ -116,7 +116,7 @@ export const updatePropertyAPI = async (  { formData , id    }  : updateProperty
 export const deletePropertyAPI = async ( id : string ) => { 
     try {
 
-        const url = `${import.meta.env.VITE_API_URL}/property/${id}`
+        const url = `${import.meta.env.VITE_API_URL}/api/property/${id}`
 
         const { data } = await axios.delete( url )
 
