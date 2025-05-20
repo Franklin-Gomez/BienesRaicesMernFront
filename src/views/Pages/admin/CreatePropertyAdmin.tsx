@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { data, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { formPropertyType } from "../../../types";
 import { useMutation } from "@tanstack/react-query";
 import { createPropertyAPI } from "../../../api";

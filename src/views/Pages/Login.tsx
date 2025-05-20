@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import { Link, redirect, useNavigate } from "react-router-dom"
+import { Link , useNavigate } from "react-router-dom"
 import { loginAPI } from "../../api"
 import { formLoginType } from "../../types"
 import Error from "../../components/errors/Error"

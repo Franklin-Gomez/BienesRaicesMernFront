@@ -28,7 +28,6 @@ export default function Router() {
                     <Route path='/Contacto' element={<Contacto/>} />
                     <Route path="/login" element={ <Login/>} />
                     
-
                 </Route>
 
                 <Route element={<AdminDashboard/>} >

@@ -26,7 +26,8 @@ export default function EditProperty() {
         price : data?.price || 0,
         wc : data?.wc || 0,
         parking : data?.parking || 0,
-        room : data?.room || 0
+        room : data?.room || 0,
+        image : data?.image || ""
     }})
 
     // actualiza los campos con los datos  de actualizar
@@ -68,7 +69,7 @@ export default function EditProperty() {
             id 
         }
 
-        mutate.mutate( data )
+        mutate.mutate( data  )
     }
 
     if( data ) return (
