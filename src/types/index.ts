@@ -6,9 +6,20 @@ export const formContactSchema = z.object({
     telefono : z.string(),
     mensaje : z.string(),
     tipo : z.string(),
+    cantidad : z.string(),
     choose_metodo_contacto : z.string(),
     metodo_contacto : z.string()
 })
+
+export const ClientSchema = formContactSchema.extend({
+    id : z.string()
+})
+
+export const ClientsSchema = z.array(ClientSchema)
+
+export type ClientType = z.infer<typeof ClientSchema>
+export type ClientsType = z.infer<typeof ClientsSchema>
+
 
 export type formContactType = z.infer<typeof formContactSchema>
 
@@ -44,3 +55,5 @@ export const PropertiesApiSchema = z.array(
 )
 
 export type PropertiesApiType = z.infer<typeof PropertiesApiSchema>
+
+

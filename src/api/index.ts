@@ -1,4 +1,4 @@
-import { formLoginType, formPropertyType, PropertiesApiSchema, PropertyApiSchema } from "../types"
+import { ClientsType, formContactType, formLoginType, formPropertyType, PropertiesApiSchema, PropertyApiSchema } from "../types"
 import axios, { isAxiosError } from "axios"
 
 export const loginAPI = async ( user : formLoginType ) => { 
@@ -124,6 +124,25 @@ export const deletePropertyAPI = async ( id : string ) => {
 
     } catch (error) {
         
+        if( isAxiosError( error) && error.response ) {
+            throw new Error(error.response.data.error)
+        }
+
+    }
+}
+
+export const getAllClientsAPI = async () => { 
+    
+    try {
+
+        const url = `${import.meta.env.VITE_API_URL}/api/client`
+
+        const  { data }  = await axios.get<ClientsType>( url )
+
+        return data
+        
+    } catch (error) {
+
         if( isAxiosError( error) && error.response ) {
             throw new Error(error.response.data.error)
         }

@@ -35,10 +35,12 @@ export default function HeaderAdmin() {
                             </div>
 
                             <div className="flex flex-row-reverse items-center  gap-3 text-white ">
-                                <img className=" w-20" src="/img/dark-mode.svg"/>
+                                {/* <img className=" w-20" src="/img/dark-mode.svg"/> */}
 
                                 <nav className=" flex gap-2 text-xl">
                                     <Link to="/" className="px-2 py-1 hover:text-gray-400 hover:font-bold">Ver Pagina</Link>
+
+                                    <Link to="/admin/clientes" className="px-2 py-1 hover:text-gray-400 hover:font-bold">Clientes</Link>
                                     
                                     <Link to="/admin/perfil" className="px-2 py-1 hover:text-gray-400 hover:font-bold">Perfil</Link>
 

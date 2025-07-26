@@ -4,20 +4,16 @@ import FooterAdmin from "../components/admin/FooterAdmin";
 
 export default function AdminDashboard() {
   return (
-    <>
+   
+    <div className="flex flex-col min-h-dvh">
 
-      <div className="flex flex-col min-h-dvh">
+      <HeaderAdmin/> 
 
-        <HeaderAdmin/> 
+        <Outlet/>
 
-            
-          <Outlet/>
+      <FooterAdmin/>
 
-
-        <FooterAdmin/>
-
-      </div>
+    </div>
       
-    </>
   )
 }

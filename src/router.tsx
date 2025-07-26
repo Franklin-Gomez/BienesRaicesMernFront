@@ -8,6 +8,7 @@ import ClientDashboard from "./views/ClientDashboard"
 import Login from "./views/Pages/Login"
 import AdminDashboard from "./views/AdminDashboard"
 import { lazy , Suspense   } from "react"
+import Clientes from "./views/Pages/admin/Clientes"
 
 export default function Router() {
 
@@ -33,6 +34,7 @@ export default function Router() {
                 <Route element={<AdminDashboard/>} >
 
                     <Route index path='/admin' element={ <Suspense fallback="Cargando..."> <InicioAdmin/> </Suspense> } />
+                    <Route index path='/admin/clientes' element={ <Suspense fallback="Cargando..."> <Clientes/> </Suspense> } />
                     <Route index path='/admin/create_property' element={ <Suspense fallback="Cargando..."> <CreatePropertyAdmin/> </Suspense> } />
                     <Route index path='/admin/edit_property/:id' element={ <Suspense fallback="Cargando..."> <EditProperty/> </Suspense> } />
 

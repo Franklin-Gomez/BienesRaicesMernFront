@@ -41,13 +41,14 @@ export default function Header() {
                             </div>
 
                             <div className="flex flex-row-reverse items-center  gap-3 text-white ">
-                                <img className=" w-20" src="/img/dark-mode.svg"/>
+                                {/* <img className=" w-20" src="/img/dark-mode.svg"/> */}
 
                                 <nav className=" flex gap-2 text-xl"  >
                                     <Link to="/nosotros" className="px-2 py-1 hover:text-gray-400 hover:font-bold">Nosotros</Link>
                                     <Link to="/anuncios" className="px-2 py-1 hover:text-gray-400 hover:font-bold">Anuncios</Link>
                                     <Link to="/blog" className="px-2 py-1 hover:text-gray-400 hover:font-bold">Blog</Link>
                                     <Link to="/contacto" className="px-2 py-1 hover:text-gray-400 hover:font-bold">Contacto</Link>
+                                    
                                     { token ? 
 
                                         <>  
