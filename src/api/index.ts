@@ -131,11 +131,12 @@ export const deletePropertyAPI = async ( id : string ) => {
     }
 }
 
+
 export const getAllClientsAPI = async () => { 
     
     try {
 
-        const url = `${import.meta.env.VITE_API_URL}/api/client`
+        const url = `${import.meta.env.VITE_API_URL}/api/contact/`
 
         const  { data }  = await axios.get<ClientsType>( url )
 
@@ -143,6 +144,24 @@ export const getAllClientsAPI = async () => {
         
     } catch (error) {
 
+        if( isAxiosError( error) && error.response ) {
+            throw new Error(error.response.data.error)
+        }
+
+    }
+}
+
+export const deleteClientAPI = async ( id : string ) => { 
+    try {
+
+        const url = `${import.meta.env.VITE_API_URL}/api/contact/${id}`
+
+        const { data } = await axios.delete( url )
+
+        return data 
+
+    } catch (error) {
+        
         if( isAxiosError( error) && error.response ) {
             throw new Error(error.response.data.error)
         }

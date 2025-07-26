@@ -1,18 +1,36 @@
 import { Link } from "react-router-dom"
-import { useQuery } from "@tanstack/react-query"
-import { getAllClientsAPI } from "../../../api"
+import { useQuery , useQueryClient , useMutation} from "@tanstack/react-query"
+import { getAllClientsAPI , deleteClientAPI } from "../../../api"
+import { toast } from "react-toastify"
 
 export default function Clientes() {
 
-
+    // obtener todos los clientes
     const { data }  = useQuery({
         queryKey: ['Clientes'],
         queryFn: () => getAllClientsAPI()
     })
 
-    const handleDelete = ( id : string) => {
-        console.log("Eliminar cliente con ID:", id)
+    // borrar cliente
+    const queryClient = useQueryClient()
+    const mutate = useMutation({
+        mutationFn : deleteClientAPI , 
+
+        onSuccess : ( data ) => { 
+            toast.success( data)
+            queryClient.invalidateQueries({ queryKey : ['Clientes'] })
+        },
+        
+        onError : (error) => { 
+            toast.error( error.message)
+        }
+    })
+    
+
+    const handleDelete = ( _id : string) => { 
+        mutate.mutate(_id)
     }
+
 
 
     return (
@@ -40,7 +58,7 @@ export default function Clientes() {
                             
                             { data.map( ( cliente ) => 
                                 
-                                <tr className="text-center" key={cliente.id }>
+                                <tr className="text-center" key={cliente._id }>
                                     <td className="border px-2 py-1">{ cliente.nombre }</td>
                                     <td className="border px-2 py-1">{ cliente.email }</td>
                                     <td className="border px-2 py-1">{ cliente.telefono }</td>
@@ -49,19 +67,19 @@ export default function Clientes() {
                                     <td className="border px-2 py-1">{ cliente.cantidad }</td>
                                     <td className="border px-2 py-1">{ cliente.choose_metodo_contacto }</td>
 
-                                    <td className="border border-black px-4 py-2 bg-green-500 text-white hover:bg-green-800"> 
+                                    {/* <td className="border border-black px-4 py-2 bg-green-500 text-white hover:bg-green-800"> 
                                         
                                         <Link
                                             to={`/admin/edit_property/${cliente.id}`}
                                         >
                                             Editar
                                         </Link>
-                                    </td>
+                                    </td> */}
                                     
                                     <td className="border border-black px-4 py-2 bg-red-500 text-white hover:bg-red-800"> 
 
                                         <button
-                                            onClick={() => handleDelete( cliente.id )}
+                                            onClick={() => handleDelete( cliente._id )}
                                         >
                                             Eliminar
                                         </button>

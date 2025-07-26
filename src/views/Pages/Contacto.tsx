@@ -24,7 +24,6 @@ export default function Contacto() {
         reset()
         console.log('mandado')
 
-
     }
 
     return (

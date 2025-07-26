@@ -12,7 +12,7 @@ export const formContactSchema = z.object({
 })
 
 export const ClientSchema = formContactSchema.extend({
-    id : z.string()
+    _id : z.string()
 })
 
 export const ClientsSchema = z.array(ClientSchema)
