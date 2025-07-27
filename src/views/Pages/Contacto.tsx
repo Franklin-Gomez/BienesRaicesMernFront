@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form"
 import Error from "../../components/errors/Error"
 import { formContactType } from "../../types"
+import { useMutation } from "@tanstack/react-query"
+import { toast } from "react-toastify"
+import { createContactAPI } from "../../api"
 
 export default function Contacto() {
 
@@ -18,12 +21,21 @@ export default function Contacto() {
 
     const choose_metodo_contacto = watch("choose_metodo_contacto")
 
+    const mutation = useMutation({
+        mutationFn : createContactAPI , 
+
+        onSuccess : () => { 
+            toast.success("Contacto Enviado Satisfactoriamente")
+            reset()
+        } , 
+
+        onError : (error) => { 
+            toast.error( error.message )
+        }
+    })
+
     const onSubmit = ( formData : formContactType ) => { 
-
-        console.log( formData  )
-        reset()
-        console.log('mandado')
-
+        mutation.mutate( formData )
     }
 
     return (

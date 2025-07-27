@@ -16,8 +16,8 @@ export default function Clientes() {
     const mutate = useMutation({
         mutationFn : deleteClientAPI , 
 
-        onSuccess : ( data ) => { 
-            toast.success( data)
+        onSuccess : () => { 
+            toast.success("Cliente Eliminado Satisfactoriamente")
             queryClient.invalidateQueries({ queryKey : ['Clientes'] })
         },
         
@@ -34,7 +34,7 @@ export default function Clientes() {
 
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4 flex-1">
             <h1 className="text-center text-3xl font-bold"> Panel de Clientes </h1>
 
             <div className="flex justify-center items-center my-4 ">

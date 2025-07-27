@@ -131,6 +131,27 @@ export const deletePropertyAPI = async ( id : string ) => {
     }
 }
 
+//----------------------- Contact API ------------------------------
+
+export const createContactAPI = async ( contact : formContactType ) => { 
+
+    try {
+
+        const url = `${import.meta.env.VITE_API_URL}/api/contact/`
+
+        const { data } = await axios.post<string>( url , contact )
+
+        return data 
+
+    } catch (error) {
+
+        if( isAxiosError( error) && error.response ) {
+            throw new Error(error.response.data.error)
+        }
+
+    }
+}
+
 
 export const getAllClientsAPI = async () => { 
     
