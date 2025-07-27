@@ -14,8 +14,12 @@ export default function HeaderAdmin() {
         }
         
     } , [navigate])
-    
 
+    const HandleLogout = () => { 
+        localStorage.removeItem('AUTH_TOKEN')
+        navigate('/')
+    }
+    
 
     return (
         <>
@@ -44,7 +48,7 @@ export default function HeaderAdmin() {
                                     
                                     <Link to="/admin/perfil" className="px-2 py-1 hover:text-gray-400 hover:font-bold">Perfil</Link>
 
-                                    <Link to="/log_out" className="px-2 py-1 hover:text-gray-400 hover:font-bold">Cerrar Sesion</Link>
+                                    <button onClick={() =>  HandleLogout() } className="px-2 py-1 hover:text-gray-400 hover:font-bold">Cerrar Sesion </button>
                                 </nav>
                             </div>
                             
