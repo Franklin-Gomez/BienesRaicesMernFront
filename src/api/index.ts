@@ -21,6 +21,7 @@ export const loginAPI = async ( user : formLoginType ) => {
     
 }
 
+//----------------------- Property API ------------------------------
 export const createPropertyAPI = async ( property :  formPropertyType) => {     
 
     try {
@@ -31,6 +32,32 @@ export const createPropertyAPI = async ( property :  formPropertyType) => {
 
         return data 
 
+    } catch (error) {
+
+        if( isAxiosError( error) && error.response ) {
+            throw new Error(error.response.data.error)
+        }
+
+    }
+}
+
+export const getAllPropertyAPI = async () => { 
+    
+    try {
+
+        const url = `${import.meta.env.VITE_API_URL}/api/property/`
+
+        const  { data }  = await axios.get( url )
+
+
+        const response = PropertiesApiSchema.safeParse( data )
+
+        if( response.success) { 
+            
+            return  response.data
+
+        }
+        
     } catch (error) {
 
         if( isAxiosError( error) && error.response ) {
@@ -85,31 +112,7 @@ export const getProperty = async ( id : string) => {
     }
 }
 
-export const getAllPropertyAPI = async () => { 
-    
-    try {
 
-        const url = `${import.meta.env.VITE_API_URL}/api/property/`
-
-        const  { data }  = await axios.get( url )
-
-
-        const response = PropertiesApiSchema.safeParse( data )
-
-        if( response.success) { 
-            
-            return  response.data
-
-        }
-        
-    } catch (error) {
-
-        if( isAxiosError( error) && error.response ) {
-            throw new Error(error.response.data.error)
-        }
-
-    }
-}
 
 
 

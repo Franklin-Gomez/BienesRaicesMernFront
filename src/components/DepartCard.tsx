@@ -7,8 +7,6 @@ type DepartCardProps = {
 
 export default function DepartCard( { deparments  } : DepartCardProps )  { 
 
-    console.log( deparments )
-
     return (
         <>
 
