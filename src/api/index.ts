@@ -40,6 +40,29 @@ export const createPropertyAPI = async ( property :  formPropertyType) => {
     }
 }
 
+export const getThreePropertiesAPI = async () => { 
+
+    try {   
+
+        const url = `${import.meta.env.VITE_API_URL}/api/property/three`
+
+        const { data } = await axios.get( url )
+
+       
+        const response = PropertiesApiSchema.safeParse( data )
+
+        if( response.success ) { 
+            return response.data
+        }
+
+    }catch (error) {
+        if( isAxiosError( error) && error.response ) { 
+            throw new Error(error.response.data.error)
+        }
+    }
+
+}
+
 export const getProperty = async ( id : string) => { 
     try {
         
@@ -87,6 +110,9 @@ export const getAllPropertyAPI = async () => {
 
     }
 }
+
+
+
 
 type updatePropertyAPIType = { 
     formData : formPropertyType
