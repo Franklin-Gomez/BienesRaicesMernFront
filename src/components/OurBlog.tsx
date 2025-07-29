@@ -10,11 +10,11 @@ export default function OurBlog() {
                         <img src="/img/blog1.jpg" alt="Entrada de blog" className="rounded"/>
                     </div>
                     <div className="flex-3/4">
-                        <a href="entrada.php">
+                        {/* <a href="entrada.php"> */}
                             <h4 className="text-2xl font-bold mb-1 "> 
                                 <span className="border-b-2 border-green-500">Terraza en el techo</span> de tu casa
                             </h4>
-                        </a>
+                        {/*</a> */}
                         <p className="text-md mb-1">Escrito el: <span className="text-amber-500 font-bold"> 20/10/2019 </span> por: <span className="text-amber-500 font-bold"> Admin </span> </p>
                         <p className="text-xl mb-1">Consejos para construir una terraza en el techo de tu casa, con los mejores materiales y ahorrando dinero</p>
                     </div>
@@ -25,11 +25,11 @@ export default function OurBlog() {
                         <img src="/img/blog2.jpg" alt="Entrada de blog" className="rounded"/>
                     </div>
                     <div className="flex-3/4">
-                        <a href="entrada.php">
+                        {/* <a href="entrada.php"> */}
                             <h4 className="text-2xl font-bold mb-1 "> 
                                 <span className="border-b-2 border-green-500">Guia para la Decoracion</span> de tu hogar
                             </h4>
-                        </a>
+                        {/* </a> */}
                         <p className="text-md mb-1">Escrito el: <span className="text-amber-500 font-bold"> 20/10/2019 </span> por: <span className="text-amber-500 font-bold"> Admin </span> </p>
                         <p className="text-xl mb-1">Consejos para construir una terraza en el techo de tu casa, con los mejores materiales y ahorrando dinero</p>
                     </div>

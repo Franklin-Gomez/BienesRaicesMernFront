@@ -1,8 +1,8 @@
-import { PropertyApiType } from "../types"
+import { PropertiesApiType } from "../types"
 import { formatCurrency } from "../utils"
 
 type DepartCardProps = {
-    deparments: PropertyApiType[]   
+    deparments: PropertiesApiType
 }
 
 
