@@ -2,13 +2,19 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { deletePropertyAPI, getAllPropertyAPI } from "../../../api";
 import { toast } from "react-toastify";
-
+import { use, useEffect } from "react";
+import { usePropertyStore } from "../../../stores/store";
 export default function InicioAdmin() {
 
     const { data } = useQuery({
         queryKey: ['Properties'],
         queryFn: () => getAllPropertyAPI(),
     })
+
+    useEffect(() => {
+        usePropertyStore.getState().resetImageURL(); // Reset the image URL in the store when the component mounts
+    })
+    
     
     // invalidar queries
     const queryClient = useQueryClient()

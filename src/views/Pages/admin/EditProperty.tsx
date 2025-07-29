@@ -7,23 +7,23 @@ import { formPropertyType } from "../../../types"
 import { useEffect } from "react"
 import { toast } from "react-toastify"
 import { usePropertyStore } from "../../../stores/store"
-import { set } from "zod"
 
 export default function EditProperty() {
 
     const navigate = useNavigate()
-
     const param = useParams()
     const id = param.id!
-
-    const setImageURL = usePropertyStore((state) => state.setImageURL )
-    const imageURL = usePropertyStore((state) => state.imageURL )
     
 
     const { data , isLoading , isError } = useQuery({
         queryKey: ['Property'],
         queryFn: () => getProperty( id ),
     })
+
+    if( data) { 
+        const setImageURL = usePropertyStore.getState().setImageURL
+        setImageURL(data.image) // Set the image URL in the store when data is fetched
+    }
     
     const { register , formState : { errors } , handleSubmit , reset } = useForm({ defaultValues : { 
         name : data?.name || "",
@@ -49,8 +49,6 @@ export default function EditProperty() {
             });
         }
     }, [data, reset]);
-
-    setImageURL(data?.image || "")
 
     const mutate = useMutation({ 
         mutationFn : updatePropertyAPI , 

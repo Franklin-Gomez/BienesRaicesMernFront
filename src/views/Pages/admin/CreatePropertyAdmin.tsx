@@ -11,8 +11,8 @@ import { usePropertyStore } from "../../../stores/store";
 export default function CreatePropertyAdmin() {
 
     const navigate = useNavigate()
+
     const imageURL = usePropertyStore((state) => state.imageURL )
-    const setImageURL = usePropertyStore((state) => state.setImageURL )
 
     const { handleSubmit , register , formState : { errors }} = useForm({ defaultValues : { 
         name : "",
@@ -28,12 +28,16 @@ export default function CreatePropertyAdmin() {
         mutationFn : createPropertyAPI ,
         onSuccess  :  ( data ) => { 
             toast.success( data )
+            usePropertyStore.getState().resetImageURL() // borramos store cuando se crea la propiedad
             navigate('/admin')
+            
         },
         onError : ( error ) => { 
             toast.error( error.message)
         }
     })
+
+
 
     const formSubmit = async ( formData : formPropertyType) => { 
 
@@ -45,8 +49,6 @@ export default function CreatePropertyAdmin() {
         mutate.mutate( data  )
             
     }
-
-    setImageURL("") // Reset the image URL after submission
 
     return (
         <div className="flex-1 container mx-auto">
