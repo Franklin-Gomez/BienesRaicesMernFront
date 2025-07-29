@@ -23,9 +23,7 @@ export default function Anuncios() {
                         />
                     }
 
-
-
-                </div>
+                </div> {/* Card*/}
             </div>
             
             

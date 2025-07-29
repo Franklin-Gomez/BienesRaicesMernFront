@@ -1,4 +1,5 @@
 import { PropertyApiType } from "../types"
+import { formatCurrency } from "../utils"
 
 type DepartCardProps = {
     deparments: PropertyApiType[]   
@@ -23,7 +24,7 @@ export default function DepartCard( { deparments  } : DepartCardProps )  {
 
                         <h3 className="text-3xl text-center mt-2"> {propiedad.name}</h3>
                         <p className="text-xl"> {propiedad.description}</p>
-                        <p className="text-2xl text-green-600 font-bold text-center"> { propiedad.price } </p>
+                        <p className="text-2xl text-green-600 font-bold text-center"> { formatCurrency( propiedad.price ) } </p>
 
                         <ul className="flex justify-around my-4">
                             <li className="flex items-center gap-4">
@@ -40,7 +41,7 @@ export default function DepartCard( { deparments  } : DepartCardProps )  {
                             </li>
                         </ul>
 
-                        <a href="/propiedad?id=<?php echo $propiedad->id; ?>" className=" uppercase text-white text-center text-xl font-bold w-full bg-orange-400 py-4 rounded hover:bg-orange-500">Ver Propiedad</a>
+                        <a href={`/propiedad/${propiedad._id}`} className=" uppercase text-white text-center text-xl font-bold w-full bg-orange-400 py-4 rounded hover:bg-orange-500">Ver Propiedad</a>
 
                     </div>
                 </div>

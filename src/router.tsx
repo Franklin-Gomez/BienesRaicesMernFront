@@ -9,6 +9,7 @@ import Login from "./views/Pages/Login"
 import AdminDashboard from "./views/AdminDashboard"
 import { lazy , Suspense   } from "react"
 import Clientes from "./views/Pages/admin/Clientes"
+import Propiedad from "./views/Pages/Propiedad"
 
 export default function Router() {
 
@@ -28,6 +29,7 @@ export default function Router() {
                     <Route path='/Blog' element={<Blog/>} />
                     <Route path='/Contacto' element={<Contacto/>} />
                     <Route path="/login" element={ <Login/>} />
+                    <Route path="/propiedad/:id" element={ <Propiedad/>} />
                     
                 </Route>
 

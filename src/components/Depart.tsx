@@ -9,8 +9,6 @@ export default function Depart() {
         queryFn: () => getThreePropertiesAPI(),
     });
 
-    console.log(data)
-
     return (
         <main className="container mx-auto">
             <h2 className="font-light text-center my-6 text-5xl">Casas y Depas en Venta</h2>
@@ -23,7 +21,7 @@ export default function Depart() {
                         <DepartCard
                             deparments={data} 
                         />
-                        
+
                     }
                     
                 </div> {/* Card*/}
