@@ -6,6 +6,8 @@ import { getProperty, updatePropertyAPI } from "../../../api"
 import { formPropertyType } from "../../../types"
 import { useEffect } from "react"
 import { toast } from "react-toastify"
+import { usePropertyStore } from "../../../stores/store"
+import { set } from "zod"
 
 export default function EditProperty() {
 
@@ -14,11 +16,14 @@ export default function EditProperty() {
     const param = useParams()
     const id = param.id!
 
+    const setImageURL = usePropertyStore((state) => state.setImageURL )
+    const imageURL = usePropertyStore((state) => state.imageURL )
+    
+
     const { data , isLoading , isError } = useQuery({
         queryKey: ['Property'],
         queryFn: () => getProperty( id ),
     })
-
     
     const { register , formState : { errors } , handleSubmit , reset } = useForm({ defaultValues : { 
         name : data?.name || "",
@@ -34,15 +39,18 @@ export default function EditProperty() {
     useEffect(() => {
         if (data) {
             reset({
-            name: data.name,
-            description: data.description,
-            price: data.price,
-            wc: data.wc,
-            parking: data.parking,
-            room: data.room,
+                name: data.name,
+                description: data.description,
+                price: data.price,
+                wc: data.wc,
+                parking: data.parking,
+                room: data.room,
+                image: data.image
             });
         }
     }, [data, reset]);
+
+    setImageURL(data?.image || "")
 
     const mutate = useMutation({ 
         mutationFn : updatePropertyAPI , 

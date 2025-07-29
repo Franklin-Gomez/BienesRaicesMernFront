@@ -73,7 +73,8 @@ export default function PropertyFormAdmin( { register , errors  } : PropertyForm
                         min : { 
                             value : 1 ,
                             message: "El precio debe ser mayor a 0"
-                        }   })}
+                        }   
+                    })}
                 />
 
                 { errors.wc && <Error> { errors.wc.message } </Error> }

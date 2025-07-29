@@ -10,8 +10,8 @@ type ImageUploadPropsype = {
 
 export default function ImageUpload( { register } : ImageUploadPropsype ) {
 
-    const setImageURL = usePropertyStore((state) => state.setImageURL)
-
+    const setImageURL = usePropertyStore((state) => state.setImageURL )
+    const imageURL = usePropertyStore((state) => state.imageURL )
 
     const handleUploadImage = async  (e : ChangeEvent<HTMLInputElement> ) => { 
         const data = new FormData()
@@ -40,6 +40,18 @@ export default function ImageUpload( { register } : ImageUploadPropsype ) {
     return (
 
         <>
+
+            { imageURL && (
+                <div className="my-4">
+                    <p className="text-sm text-gray-500">Imagen actual:</p>
+                    <img
+                        src={imageURL}
+                        alt="Imagen de la propiedad"
+                        className="w-60 h-auto rounded shadow"
+                    />
+                </div>
+            )}
+
             <div className="space-y-2">
 
                 <label className="text-xl text-gray-400"> Imagen Producto </label>
