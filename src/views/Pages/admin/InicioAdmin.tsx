@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { deletePropertyAPI, getAllPropertyAPI } from "../../../api";
 import { toast } from "react-toastify";
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 import { usePropertyStore } from "../../../stores/store";
 export default function InicioAdmin() {
 
@@ -12,7 +12,7 @@ export default function InicioAdmin() {
     })
 
     useEffect(() => {
-        usePropertyStore.getState().resetImageURL(); // Reset the image URL in the store when the component mounts
+        usePropertyStore.getState().resetImageURL(); // limpiamos valor del state
     })
     
     

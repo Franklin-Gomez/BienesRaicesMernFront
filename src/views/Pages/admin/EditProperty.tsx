@@ -69,7 +69,11 @@ export default function EditProperty() {
 
 
     const handleSaveForm = ( formData : formPropertyType) => { 
+
+        const imageURL = usePropertyStore.getState().imageURL
         
+        formData.image = imageURL // agregamos la url de la nueva imagen al formData
+
         const data = { 
             formData , 
             id 

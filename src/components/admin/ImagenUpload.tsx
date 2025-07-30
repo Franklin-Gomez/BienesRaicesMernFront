@@ -17,13 +17,19 @@ export default function ImageUpload( { register } : ImageUploadPropsype ) {
         const data = new FormData()
         
         const image = e.target.files?.[0]!
+
+        // if (!image) {
+        //     console.log("No se seleccionó una nueva imagen.");
+        //     return; // No hacer nada si no hay nueva imagen
+        // }
+
         const preset = "correo"
 
         data.append('file', image )
         data.append('upload_preset', preset)
 
         try {
-            
+
             const res = await axios.post( 'https://api.cloudinary.com/v1_1/dxim8oxpo/image/upload', data  );
 
             const file =  await res.data
