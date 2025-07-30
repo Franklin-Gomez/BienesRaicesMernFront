@@ -67,8 +67,6 @@ export default function EditProperty() {
 
     if( isLoading )  return "Cargando..."
 
-    console.log(data)
-
     if( !data ) return "No se encontró la propiedad" 
 
     const handleSaveForm = ( formData : formPropertyType) => { 

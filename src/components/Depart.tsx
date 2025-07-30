@@ -14,7 +14,7 @@ export default function Depart() {
             <h2 className="font-light text-center my-6 text-5xl">Casas y Depas en Venta</h2>
             
             <div className="flex">
-                <div className="flex  gap-4">
+                <div className=" flex flex-col  md:flex-row gap-4 ">
 
                     { data && 
 

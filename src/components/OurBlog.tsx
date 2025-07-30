@@ -51,7 +51,7 @@ export default function OurBlog() {
 
                     </div>
 
-                    <p className="text-end mt-4 text-white">- Juan De la torre</p>
+                    <p className="text-end mt-4 text-white">- Franklin D. Gomez</p>
                     
                 </div>
             </section>

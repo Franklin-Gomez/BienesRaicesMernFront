@@ -15,11 +15,13 @@ export default function Nosotros() {
                     
 
                     <p className=" text-2xl">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet dicta fugit, deleniti dignissimos consequatur quas quos, veniam incidunt repellat impedit eum temporibus vitae numquam laudantium magni recusandae delectus nihil reprehenderit.
+                        En Bienes Raices, nos apasiona ayudarte a encontrar el lugar perfecto para vivir o invertir. Con años de experiencia en el sector inmobiliario, nos hemos consolidado como una empresa confiable que ofrece un servicio personalizado, transparente y enfocado en tus necesidades.
                         <br></br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, aspernatur! Distinctio, porro quam magnam fuga cum vitae minus nostrum aut animi eos mollitia, commodi vero! Numquam adipisci laborum labore assumenda!
                         <br></br>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis deserunt iusto laudantium cum beatae expedita quae dolorum nesciunt! Soluta molestias temporibus iusto accusantium, doloribus nobis hic! Praesentium, similique. Iste, ducimus.
+                        Ya sea que busques tu primera vivienda, un nuevo hogar para tu familia o una propiedad para rentabilizar, nuestro equipo está comprometido en acompañarte en cada paso del proceso. Creemos en construir relaciones duraderas basadas en la confianza, la honestidad y los resultados.
+                        <br></br>
+                        <br></br>
+                        Nuestro objetivo es que disfrutes de una experiencia inmobiliaria simple, segura y sin complicaciones. Nos enorgullece ofrecerte un servicio excepcional, asesoramiento experto y un amplio portafolio de propiedades que se adaptan a tus necesidades y presupuesto.
                     </p>
 
                 </div>

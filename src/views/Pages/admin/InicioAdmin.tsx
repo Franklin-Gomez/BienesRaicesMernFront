@@ -4,6 +4,7 @@ import { deletePropertyAPI, getAllPropertyAPI } from "../../../api";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { usePropertyStore } from "../../../stores/store";
+import { formatCurrency } from "../../../utils";
 export default function InicioAdmin() {
 
     const { data } = useQuery({
@@ -81,8 +82,8 @@ export default function InicioAdmin() {
                                         <img src={property.image} alt="Imagen Propiedad" className="w-30 h-30 object-cover rounded-lg mx-auto" />
                                     </td>
                                     <td className="border px-2 py-1">{ property.name }</td>
-                                    <td className="border px-2 py-1">{ property.description }</td>
-                                    <td className="border px-2 py-1">{ property.price }</td>
+                                    <td className="border px-2 py-1 max-w-[200px] ">{ property.description }</td>
+                                    <td className="border px-2 py-1">{ formatCurrency ( property.price ) }</td>
                                     <td className="border px-2 py-1">{ property.wc }</td>
                                     <td className="border px-2 py-1">{ property.parking }</td>
                                     <td className="border px-2 py-1">{ property.room }</td>
