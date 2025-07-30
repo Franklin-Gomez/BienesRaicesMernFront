@@ -18,10 +18,10 @@ export default function ImageUpload( { register } : ImageUploadPropsype ) {
         
         const image = e.target.files?.[0]!
 
-        // if (!image) {
-        //     console.log("No se seleccionó una nueva imagen.");
-        //     return; // No hacer nada si no hay nueva imagen
-        // }
+        if (!image) {
+            console.log("No se seleccionó una nueva imagen.");
+            return; // No hacer nada si no hay nueva imagen
+        }
 
         const preset = "correo"
 
@@ -69,12 +69,20 @@ export default function ImageUpload( { register } : ImageUploadPropsype ) {
                     <input
                         type="file"
                         className=" w-full text-center"
-                        {...register("image", 
-                            { 
-                                required: "Imagen requerida",
-                                onChange : (e) => handleUploadImage(e),
-                            }
-                        )}
+                        // {...register("image", 
+                        //     { 
+                        //         required: "Imagen requerida",
+                        //         onChange : (e) => handleUploadImage(e),
+                        //     }
+                        // )}
+                    
+                        {...register("image", {
+                            validate: () => {
+                                const imageURL = usePropertyStore.getState().imageURL
+                                return !!imageURL || "Imagen requerida"
+                            },
+                            onChange: (e) => handleUploadImage(e),
+                        })}
                     />
 
                 </div>

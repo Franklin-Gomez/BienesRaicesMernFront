@@ -67,19 +67,21 @@ export default function EditProperty() {
 
     if( isLoading )  return "Cargando..."
 
+    console.log(data)
+
+    if( !data ) return "No se encontró la propiedad" 
 
     const handleSaveForm = ( formData : formPropertyType) => { 
 
         const imageURL = usePropertyStore.getState().imageURL
-        
-        formData.image = imageURL // agregamos la url de la nueva imagen al formData
+        formData.image = imageURL  // agregamos la url de la nueva imagen al formData
 
-        const data = { 
+        const data2 = { 
             formData , 
             id 
         }
-
-        mutate.mutate( data  )
+        
+        mutate.mutate( data2  )
     }
 
     if( data ) return (
