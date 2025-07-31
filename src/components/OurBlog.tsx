@@ -1,7 +1,8 @@
 
 export default function OurBlog() {
     return (
-        <div className=" container mx-auto grid grid-cols-[2fr_1fr] gap-4">
+        // <div className=" container mx-auto grid grid-cols-[2fr_1fr] gap-4">
+            <div className="container mx-auto md:grid md:grid-cols-[2fr_1fr] gap-4">
             <section className="blog">
                 <h3 className="text-3xl text-center mt-2">Nuestro Blog</h3>
 
